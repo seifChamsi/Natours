@@ -1,0 +1,14 @@
+{
+  "name": "natours-project",
+  "version": "1.0.0",
+  "description": "Implementation of building an API using NodeJS/Express/MongoDB/POSTMAN...",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saifeddin Chamsi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
