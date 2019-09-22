@@ -1,5 +1,10 @@
 const fs = require('fs');
 const express = require('express');
+const morgan = require('morgan');
+const Sentry = require('@sentry/node');
+Sentry.init({
+    dsn: 'https://abb3551809814f23a3cf8bbf9f6c7dd9@sentry.io/1552699'
+});
 
 const app = express();
 
@@ -9,7 +14,7 @@ app.use((req, res, next) => {
     console.log('Hello from the middleware');
     next();
 });
-
+Sen();
 app.use((req, res, next) => {
     req.requestTime = new Date().toUTCString();
     next();
