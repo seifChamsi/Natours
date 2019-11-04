@@ -10,12 +10,13 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 console.log(DB);
-//connect to the database
+//connect to the database(Promise)
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: true
+    useFindAndModify: true,
+    useUnifiedTopology: true
   })
   .then(() => {
     console.log('DB connection success');
