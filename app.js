@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const userRouter = require('./routes/userRoutes');
 const tourRouter = require('./routes/tourRoutes');
 const Sentry = require('@sentry/node');
+
 Sentry.init({
   dsn: 'https://abb3551809814f23a3cf8bbf9f6c7dd9@sentry.io/1552699'
 });
