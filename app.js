@@ -2,6 +2,8 @@ const express = require('express');
 const morgan = require('morgan');
 const userRouter = require('./routes/userRoutes');
 const tourRouter = require('./routes/tourRoutes');
+const appError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController');
 const Sentry = require('@sentry/node');
 
 Sentry.init({
@@ -27,5 +29,17 @@ app.use((req, res, next) => {
 //Router mounting
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/tours', tourRouter);
+
+app.all('*', (req, res, next) => {
+
+  // const err = new Error(`this url ${req.originalUrl} is unachievable`)
+  // err.status = 'fail';
+  // err.statusCode = 404
+
+  next(new appError(`this url ${req.originalUrl} is unachievable`, 404));
+})
+
+//error handling middleware
+app.use(globalErrorHandler)
 
 module.exports = app;

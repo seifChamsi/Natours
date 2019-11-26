@@ -1,4 +1,4 @@
-const APIFeatures = require('./APIFeatures')
+const APIFeatures = require('../utils/APIFeatures')
 const Tour = require('./../models/tourModel');
 
 //midleware for top 5
@@ -141,12 +141,12 @@ getTourStat = async (req, res) => {
             $max: '$price'
           }
         },
-        get $group() {
-          return this._$group;
-        },
-        set $group(value) {
-          this._$group = value;
-        },
+        // get $group() {
+        //   return this._$group;
+        // },
+        // set $group(value) {
+        //   this._$group = value;
+        // },
       }
     ]);
 
